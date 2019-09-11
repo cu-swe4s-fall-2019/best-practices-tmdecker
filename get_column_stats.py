@@ -2,17 +2,26 @@ import sys
 import math
 import math_lib
 
+
 file_name = sys.argv[1]
+
 col_num = int(sys.argv[2])
 
-f = open(file_name, 'r')
+try:
+    f = open(file_name, 'r')
+except FileNotFoundError:
+    print(file_name, 'not found!')
+    sys.exit(2)
 
 V = []
 
-
-for l in f:
-    A = [int(x) for x in l.split()]
-    V.append(A[col_num])
+try:
+    for l in f:
+        A = [int(x) for x in l.split()]
+        V.append(A[col_num])
+except IndexError:
+    print(file_name, 'has less than', col_num, 'columns!')
+    sys.exit(2)
 
 f.close()
 
