@@ -1,6 +1,6 @@
 import sys
 import math
-
+import math_lib
 
 file_name = sys.argv[1]
 col_num = int(sys.argv[2])
@@ -19,9 +19,9 @@ f.close()
 if len(V) < 1:
     print('no data found in file')
 else:
-    mean = sum(V) / len(V)
+    mean = math_lib.mean(V)
 
-    stdev = math.sqrt(sum([(mean-x)**2 for x in V]) / len(V))
+    stdev = math_lib.stdev(V)
 
     print('mean:', mean)
     print('stdev:', stdev)
