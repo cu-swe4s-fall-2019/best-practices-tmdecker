@@ -11,7 +11,7 @@ try:
     f = open(file_name, 'r')
 except FileNotFoundError:
     print(file_name, 'not found!')
-    sys.exit(2)
+    sys.exit(1)
 
 V = []
 
@@ -21,7 +21,7 @@ try:
         V.append(A[col_num])
 except IndexError:
     print(file_name, 'has less than', col_num, 'columns!')
-    sys.exit(2)
+    sys.exit(1)
 
 f.close()
 
